@@ -9,7 +9,7 @@ export default function FAQ() {
       <p>🔐 No sign-up required. Just log in and start adding tasks!</p>
 
       <h3>❓ Can I save my tasks permanently?</h3>
-      <p>💾 Your tasks are saved in local storage. Database option coming soon!</p>
+      <p>💾 Your tasks are saved in local storage. Database support coming soon!</p>
     </div>
   )
 }

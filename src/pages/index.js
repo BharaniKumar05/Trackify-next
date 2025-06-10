@@ -19,13 +19,29 @@ export default function LandingPage() {
           style={{ width: '100%', maxWidth: '300px', margin: '30px auto' }}
         />
 
+        <div className="features-intro">
+          <h2>🧠 AI-Enhanced Task Insights</h2>
+          <p>
+            Trackify uses AI to help prioritize tasks based on urgency, recommend time estimates,
+            and even suggest optimal scheduling based on your workload patterns.
+          </p>
+        </div>
+
+        <div className="features-intro">
+          <h2>⚡ Smart Reminders & Daily Planning</h2>
+          <p>
+            Get intelligent reminders and auto-generated daily plans that adapt to your task
+            history and productivity habits.
+          </p>
+        </div>
+
         <div style={{ marginTop: '30px' }}>
-          <Link href="/dashboard" className="button">
-            Go to Dashboard
-          </Link>
-          <Link href="/about" className="button back" style={{ marginLeft: '15px' }}>
-            Learn More
-          </Link>
+          <Link href="/dashboard" className="button">Go to Dashboard</Link>
+          <Link href="/about" className="button back" style={{ marginLeft: '15px' }}>Learn More</Link>
+          <Link href="/features" className="button" style={{ marginLeft: '15px' }}>Features</Link>
+          <Link href="/faq" className="button back" style={{ marginLeft: '15px' }}>FAQ</Link>
+          <Link href="/contact" className="button" style={{ marginLeft: '15px' }}>Contact</Link>
+          <Link href="/privacy" className="button back" style={{ marginLeft: '15px' }}>Privacy</Link>
         </div>
       </div>
     </>
