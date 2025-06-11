@@ -1,4 +1,4 @@
-xport default function Privacy() {
+export default function Privacy() {
   return (
     <div className="container">
       <h1>Privacy Policy</h1>
