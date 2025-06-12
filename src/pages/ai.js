@@ -16,10 +16,18 @@ export default function AIPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt }),
       })
+
       const data = await res.json()
-      setResponse(data.result)
-    } catch {
-      setResponse('❌ Failed to fetch response')
+      console.log('🔍 OpenAI Response:', data)
+
+      if (res.ok) {
+        setResponse(data.result || '⚠️ No result returned from AI.')
+      } else {
+        setResponse('❌ Error from AI: ' + (data.error || 'Unknown error'))
+      }
+    } catch (err) {
+      setResponse('❌ Failed to connect to API')
+      console.error('❌ Network error:', err)
     }
 
     setLoading(false)
@@ -27,22 +35,40 @@ export default function AIPage() {
 
   return (
     <div className="container">
-      <h1>🧠 Ask Trackify AI</h1>
+      <h1 style={{ fontSize: '28px', color: '#8e24aa' }}>🧠 Ask Trackify AI</h1>
+
       <form onSubmit={handleSubmit}>
         <textarea
           rows="4"
-          placeholder="Ask something like: suggest a schedule for my 5 tasks"
+          placeholder="Example: suggest a daily schedule for 5 tasks"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           required
+          style={{
+            width: '100%',
+            padding: '12px',
+            fontSize: '16px',
+            borderRadius: '12px',
+            border: '2px solid #ba68c8',
+            marginTop: '20px',
+          }}
         />
-        <button type="submit" className="button">Ask</button>
+        <button type="submit" className="button" style={{ marginTop: '15px' }}>
+          Ask
+        </button>
       </form>
 
-      {loading && <p>⏳ Thinking...</p>}
+      {loading && <p style={{ marginTop: '20px' }}>⏳ Thinking...</p>}
+
       {response && (
-        <div className="result-box">
-          <h3>🧠 AI Suggestion:</h3>
+        <div className="result-box" style={{
+          background: '#f3e5f5',
+          padding: '20px',
+          marginTop: '20px',
+          borderRadius: '12px',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.08)'
+        }}>
+          <h3 style={{ color: '#6a1b9a' }}>AI Suggestion:</h3>
           <p>{response}</p>
         </div>
       )}
