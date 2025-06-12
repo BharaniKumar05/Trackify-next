@@ -42,6 +42,7 @@ export default function LandingPage() {
           <Link href="/faq" className="button back" style={{ marginLeft: '15px' }}>FAQ</Link>
           <Link href="/contact" className="button" style={{ marginLeft: '15px' }}>Contact</Link>
           <Link href="/privacy" className="button back" style={{ marginLeft: '15px' }}>Privacy</Link>
+          <Link href="/ai" className="button">Ask Trackify AI</Link>
         </div>
       </div>
     </>
